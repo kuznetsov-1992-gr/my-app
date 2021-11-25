@@ -2,12 +2,10 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-link {
   color: #61dafb;
 }
- 
+
+.flex-racurs{
+  display: flex;
+}
