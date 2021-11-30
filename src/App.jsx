@@ -1,17 +1,24 @@
+import React from "react";
 // import logo from './logo.svg';
 // import "./Massage.css";
 import "./App.css";
-import Massage from "./Massage.jsx";
 // import Monaco from './img/Monaco.jpg'
+import { MassageList } from "./Components";
+import {ChatList} from "./Components"
+import {Router} from "./Router"
+
 
 function App() {
-  const road = "Monaco";
+  
   return (
     <div className="App">
-      <Massage className="Massage" road={road}></Massage>
+      <Router></Router>
+      <div className="flex-racurs">
+        <ChatList></ChatList>
+        <MassageList></MassageList>
+      </div>
     </div>
   );
 }
 
 export default App;
- 
