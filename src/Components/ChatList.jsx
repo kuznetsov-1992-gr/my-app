@@ -7,10 +7,10 @@ import IconButton from '@mui/material/IconButton';
 
 export const ChatList = () => {
   const chatList = [
-    {name: 'Friend', id: 'fd1' },
-    {name: 'Family', id: 'fy1'},
-    {name: 'Job', id: 'jb1'},
-    {name: 'BOT', id: 'bot-context'}
+     {name: 'Friend', chat: [], id: 1},
+     {name: 'Family', chat: [], id: 2},
+     {name: 'Job', chat: [],id: 3 },
+     {name: 'BOT', chat: [], id: 4}
   ];
 
   

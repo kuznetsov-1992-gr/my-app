@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-// import * as React from 'react';
 import { v4 as uuidv4 } from "uuid";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -7,7 +6,8 @@ import SendIcon from "@mui/icons-material/Send";
 
 import "./MassageList.css";
 
-export const MassageList = () => {
+
+export const MassageList = ({children}) => {
   const getId = uuidv4();
   
 
@@ -32,9 +32,7 @@ export const MassageList = () => {
   const texterea = useRef()
 
   useEffect(() => {
-    // if (massageList.length > 1) {
-    //   const UserLength = massageList;
-      // console.log(texterea)
+  
       texterea.current?.focus()
       if (massageList[massageList.length - 1].author === "User") {
         // console.log(UserLength);
@@ -46,7 +44,7 @@ export const MassageList = () => {
           ]);
         }, 1500);
       }
-    // }
+    
   }, [massageList.length]);
 
   
@@ -85,6 +83,7 @@ export const MassageList = () => {
         </Button>
       </div>
       {/* <button onClick={pushMassage}>Отправить</button> */}
+      
     </div>
   );
 };
