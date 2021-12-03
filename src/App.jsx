@@ -1,20 +1,30 @@
 import React from "react";
-// import logo from './logo.svg';
-// import "./Massage.css";
+import { Provider } from "react-redux";
 import "./App.css";
-// import Monaco from './img/Monaco.jpg'
 import { MassageList } from "./Components";
-import {ChatList} from "./Components"
+import { ChatList } from "./Components";
+import { Router } from "./Router";
+import { store } from "./Store";
 
+export const MyContext = React.createContext({ theme: "dark" });
 
 function App() {
-  
   return (
     <div className="App">
-      <div className="flex-racurs">
+      <Provider store={store}>
+        <MyContext.Provider
+          value={{
+            dark: { theme: "dark", name: "Venom" },
+            while: { theme: "while", name: "WhileSnowe" },
+          }}
+        >
+          <Router />
+        </MyContext.Provider>
+        {/* <div className="flex-racurs">
         <ChatList></ChatList>
         <MassageList></MassageList>
-      </div>
+      </div> */}
+      </Provider>
     </div>
   );
 }
