@@ -1,17 +1,17 @@
 // import logo from './logo.svg';
 // import "./Massage.css";
 import "./App.css";
-import Massage from "./Massage.jsx";
 // import Monaco from './img/Monaco.jpg'
+import { MassageList } from "./Components";
 
 function App() {
-  const road = "Monaco";
+  
   return (
     <div className="App">
-      <Massage className="Massage" road={road}></Massage>
+      <MassageList></MassageList>
+      
     </div>
   );
 }
 
 export default App;
- 
