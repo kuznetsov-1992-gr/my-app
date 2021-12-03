@@ -1,7 +1,7 @@
-import {MassageList} from './MassageList';
+import {MessageList} from './MessageList';
 import {ChatList} from './ChatList'
 
 
-export {MassageList};
+export {MessageList};
 export {ChatList};
 

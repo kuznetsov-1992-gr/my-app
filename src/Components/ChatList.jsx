@@ -20,7 +20,7 @@ export const ChatList = () => {
   return(
     
     <div className="manu-chat">
-      <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+      <List sx={{ width: '100%', maxWidth: 360, minHeight: "90vh", bgcolor: 'background.paper' }}>
         {chatList.map((item) => {
             return (<ListItem
             key={item.id}

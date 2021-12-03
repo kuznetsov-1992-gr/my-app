@@ -7,20 +7,20 @@ import SendIcon from "@mui/icons-material/Send";
 import "./MassageList.css";
 
 
-export const MassageList = ({children}) => {
+export const MessageList = ({children}) => {
   const getId = uuidv4();
   
 
 
-  const [massageList, setMassage] = useState([
-    { author: "Поле сообщений:", massage: "", id: 'cc1' },
+  const [messageList, setMassage] = useState([
+    { author: "Поле сообщений:", message: "", id: 'cc1' },
   ]);
   const [text, setText] = useState("");
 
   const pushMassage = () => {
-    setMassage((massageList) => [
-      ...massageList,
-      { author: "User", massage: text, id: getId },
+    setMassage((messageList) => [
+      ...messageList,
+      { author: "User", message: text, id: getId },
     ]);
     setText("");
   };
@@ -34,18 +34,18 @@ export const MassageList = ({children}) => {
   useEffect(() => {
   
       texterea.current?.focus()
-      if (massageList[massageList.length - 1].author === "User") {
+      if (messageList[messageList.length - 1].author === "User") {
         // console.log(UserLength);
         clearTimeout(ref.current);
         ref.current = setTimeout(() => {
-          setMassage((massageList) => [
-            ...massageList,
-            { author: "BOT", massage: "ПРИвет", id: getId },
+          setMassage((messageList) => [
+            ...messageList,
+            { author: "BOT", message: "ПРИвет", id: getId },
           ]);
         }, 1500);
       }
     
-  }, [massageList.length]);
+  }, [messageList.length]);
 
   
 
@@ -53,14 +53,14 @@ export const MassageList = ({children}) => {
   return (
     <div className="field">
       <div className="field-chat" >
-        {massageList.map((mas) => (
-          <div key={mas.id}>
-            <h3>{mas.author}</h3>
-            <p>{mas.massage}</p>
+        {messageList.map((mes) => (
+          <div key={mes.id}>
+            <h3>{mes.author}</h3>
+            <p>{mes.message}</p>
           </div>
         ))}
       </div>
-      {/* <input value={text} onChange={(e) => setText(e.target.value)} /> */}
+     
       <div className="input-btn">
         <TextField
           id="filled-textarea"
@@ -82,7 +82,7 @@ export const MassageList = ({children}) => {
           Лети
         </Button>
       </div>
-      {/* <button onClick={pushMassage}>Отправить</button> */}
+     
       
     </div>
   );

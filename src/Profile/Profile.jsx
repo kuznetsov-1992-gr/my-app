@@ -1,8 +1,29 @@
+import { useDispatch, useSelector } from "react-redux";
 
-export const Profile =() =>{
+import { toggleNameAction } from "../Store/Profile/actions";
 
+import { profileSelector } from "../Store/Profile/selectors";
 
-    return (
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, aspernatur rem. Veniam facilis ea quis doloremque voluptas, ex perferendis, laborum nulla accusantium tempora aliquam corporis suscipit sunt ipsa aut provident?</div>
-    )
-}
+export const Profile = () => {
+  const { name, showName } = useSelector(profileSelector);
+
+  const dispatch = useDispatch();
+
+  const setShowName = () => {
+    dispatch(toggleNameAction());
+  };
+
+  return (
+    <div>
+      <div>Profile</div>
+      <input
+        type="checkbox"
+        checked={showName}
+        value={showName}
+        onChange={setShowName}
+      />
+      <span>Show Name</span>
+      {showName && <div>{name}</div>}
+    </div>
+  );
+};
