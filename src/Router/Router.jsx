@@ -8,34 +8,33 @@ import { Home } from "../Home";
 import { Profile } from "../Profile";
 import { Chat } from "../Chat";
 import { ROUTERS } from "./constants/";
+import { initialChats } from "../Components";
 
 export const Router = () => {
   return (
     <BrowserRouter>
-      <ul className="header-manu">
-        <li>
-          <Link to={ROUTERS.CHAT}>
+      
+        <nav>
+          <Link to={ROUTERS.NO_CHAT}>
             <LocalPostOfficeOutlinedIcon />
           </Link>
-        </li>
-        <li>
+      
           <Link to={ROUTERS.PROFILE}>
             <PersonIcon />
           </Link>
-        </li>
-        <li>
+      
           <Link to={ROUTERS.HOME}>
             <HomeOutlinedIcon />
           </Link>
-        </li>
-      </ul>
+        </nav>
+      
 
       <Switch>
         <Route exact path={ROUTERS.HOME} render={()=> <Home/>}>
           {/* <Home /> */}
         </Route>
-        <Route exact path={ROUTERS.CHAT}>
-          <Chat/>
+        <Route path={ROUTERS.NO_CHAT}>
+          <Chat initialChats={initialChats}/>
         </Route>
         <Route exact path={ROUTERS.PROFILE}>
           <Profile />
@@ -44,6 +43,9 @@ export const Router = () => {
         <Route>
           <Redirect to={ROUTERS.NOT_FOUND}/>
         </Route>
+        <Route exact path={ROUTERS.CHAT} render={()=> <Chat/>}/>
+
+        
       </Switch>
     </BrowserRouter>
   );

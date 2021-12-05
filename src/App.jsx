@@ -1,8 +1,8 @@
 import React from "react";
-import { Provider } from "react-redux";
+import{Provider} from "react-redux"
 import "./App.css";
-import { MassageList } from "./Components";
-import { ChatList } from "./Components";
+// import { MassageList } from "./Components";
+// import { ChatList } from "./Components";
 import { Router } from "./Router";
 import { store } from "./Store";
 
