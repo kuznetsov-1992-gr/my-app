@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { toggleNameAction } from "../Store/Profile/actions";
+import { toggleNameAction } from "../../Store/Profile/actions";
 
-import { profileSelector } from "../Store/Profile/selectors";
+import { profileSelector } from "../../Store/Profile/selectors";
 
 export const Profile = () => {
   const { name, showName } = useSelector(profileSelector);

@@ -7,20 +7,19 @@ import SendIcon from "@mui/icons-material/Send";
 import "./MassageList.css";
 
 
-export const MessageList = ({children}) => {
+export const MessageList = ({message}) => {
   const getId = uuidv4();
+  console.log(message)
   
 
 
-  const [messageList, setMassage] = useState([
-    { author: "Поле сообщений:", message: "", id: 'cc1' },
-  ]);
-  const [text, setText] = useState("");
+  const [messageList, setMassage] = useState(message);
+  const [textValue, setText] = useState("");
 
   const pushMassage = () => {
     setMassage((messageList) => [
       ...messageList,
-      { author: "User", message: text, id: getId },
+      { author: "User", text: textValue, id: getId },
     ]);
     setText("");
   };
@@ -40,14 +39,14 @@ export const MessageList = ({children}) => {
         ref.current = setTimeout(() => {
           setMassage((messageList) => [
             ...messageList,
-            { author: "BOT", message: "ПРИвет", id: getId },
+            { author: "BOT", text: "ПРИвет", id: getId },
           ]);
         }, 1500);
       }
     
   }, [messageList.length]);
 
-  
+  // console.log(messageList)
 
   
   return (
@@ -56,7 +55,7 @@ export const MessageList = ({children}) => {
         {messageList.map((mes) => (
           <div key={mes.id}>
             <h3>{mes.author}</h3>
-            <p>{mes.message}</p>
+            <p>{mes.text}</p>
           </div>
         ))}
       </div>
@@ -65,7 +64,7 @@ export const MessageList = ({children}) => {
         <TextField
           id="filled-textarea"
           label="Multiline Placeholder"
-          value={text}
+          value={textValue}
           onChange={(e) => setText(e.target.value)}
           placeholder="Placeholder"
           multiline

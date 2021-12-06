@@ -3,12 +3,12 @@ import PersonIcon from "@mui/icons-material/Person";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import LocalPostOfficeOutlinedIcon from "@mui/icons-material/LocalPostOfficeOutlined";
 import { BrowserRouter, Link, Route, Switch, Redirect } from "react-router-dom";
-// import {Switch} from "@mui/material"
-import { Home } from "../Home";
-import { Profile } from "../Profile";
-import { Chat } from "../Chat";
-import { ROUTERS } from "./constants/";
-import { initialChats } from "../Components";
+import { Home } from "../Screens/Home";
+import { Profile } from "../Screens/Profile";
+import { Chat } from "../Screens/Chat";
+import { ROUTERS } from "./routers";
+import { NoChat } from "../Screens/NoChat/NoChat";
+
 
 export const Router = () => {
   return (
@@ -31,19 +31,19 @@ export const Router = () => {
 
       <Switch>
         <Route exact path={ROUTERS.HOME} render={()=> <Home/>}>
-          {/* <Home /> */}
         </Route>
-        <Route path={ROUTERS.NO_CHAT}>
-          <Chat initialChats={initialChats}/>
+        <Route exact path={ROUTERS.NO_CHAT}>
+          <NoChat />
         </Route>
         <Route exact path={ROUTERS.PROFILE}>
           <Profile />
         </Route>
+        <Route exact path={ROUTERS.CHAT} render={()=> <Chat/>}/>
         <Route path={ROUTERS.NOT_FOUND}>ERROR 404</Route>
         <Route>
           <Redirect to={ROUTERS.NOT_FOUND}/>
         </Route>
-        <Route exact path={ROUTERS.CHAT} render={()=> <Chat/>}/>
+        
 
         
       </Switch>

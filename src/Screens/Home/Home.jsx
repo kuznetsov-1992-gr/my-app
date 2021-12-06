@@ -1,9 +1,7 @@
-import { useContext } from "react"
-import { MyContext } from "../App";
 
 export const Home = (props) => {
 
-    const context = useContext(MyContext);
+   
 
     
     return (
