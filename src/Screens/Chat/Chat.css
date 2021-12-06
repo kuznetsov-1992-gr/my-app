@@ -1,0 +1,15 @@
+.chat-zero{
+    background-color: aquamarine;
+    min-height: 90vh;
+}
+.App {
+    text-align: center;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  .flex-racurs{
+    display: flex;
+  }
